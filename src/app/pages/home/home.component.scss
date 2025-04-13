@@ -1,0 +1,75 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom right, #0288d1, #00bcd4);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 60px 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 50, 0.4);
+  }
+  
+  p {
+    color: #e0f7fa;
+    font-size: 20px;
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+}
+
+.tasks {
+  width: 250px;
+  margin: 12px auto;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 15px; 
+    height: auto; 
+  }
+
+  h1 {
+    font-size: 28px; 
+  }
+
+  p {
+    font-size: 18px; 
+    margin-bottom: 20px;
+    max-width: 80%; 
+  }
+
+  .tasks {
+    width: 80%; 
+    font-size: 14px; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .tasks {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+
+  p {
+    font-size: 16px; 
+  }
+}

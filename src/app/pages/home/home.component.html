@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>🏆Üdvözöljük a Vizilabda Bajnokság oldalán</h1>
+  <p>Az Ön kapuja a végső vízilabda-bajnoksághoz!
+  </p>
+
+  <button mat-flat-button color="primary" class="tasks" (click)="changePage()">View Matches</button>
+
+  @if (!isLoggedIn) {
+    <button mat-flat-button color="accent" [routerLink]="['/login']" class="tasks">Login to Join</button>
+  }
+
+  @if (isLoggedIn) {
+    <button mat-flat-button color="accent" [routerLink]="['/profile']" class="tasks">My Team Profile</button>
+  }
+</div>

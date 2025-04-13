@@ -1,0 +1,37 @@
+<div class="standings-container">
+  <h2>Tabella</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Hely</th>
+          <th>Csapat</th>
+          <th>M.</th>
+          <th>Gy.</th>
+          <th>D.</th>
+          <th>V.</th>
+          <th>Dobott</th>
+          <th>Kapott</th>
+          <th>GK.</th>
+          <th>Pont</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams; let i = index" [class.even]="i % 2 === 0">
+          <td>{{ i + 1 }}</td>
+          <td class="team-cell">
+            {{ team.name }}
+          </td>
+          <td>{{ team.matches }}</td>
+          <td>{{ team.wins }}</td>
+          <td>{{ team.draws }}</td>
+          <td>{{ team.losses }}</td>
+          <td>{{ team.scored }}</td>
+          <td>{{ team.conceded }}</td>
+          <td>{{ team.goalDiff }}</td>
+          <td>{{ team.points }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

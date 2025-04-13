@@ -1,0 +1,62 @@
+.matches-container {
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+  
+    h2 {
+      color: #0b1a64;
+      margin-top: 30px;
+      border-bottom: 2px solid #00aaff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+  
+    .match-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 15px 10px;
+      font-size: 16px;
+  
+      .date {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 500;
+        color: #333;
+      }
+  
+      .teams {
+        flex-grow: 1;
+        text-align: center;
+  
+        .team {
+          font-weight: bold;
+          font-size: 17px;
+  
+          &.home {
+            color: #0077cc;
+          }
+  
+          &.away {
+            color: #cc0000;
+          }
+        }
+  
+        .score {
+          margin: 0 10px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+  
+      .location {
+        width: 250px;
+        text-align: right;
+        font-style: italic;
+        font-size: 15px;
+      }
+    }
+  }
+  

@@ -1,0 +1,29 @@
+<div class="matches-container">
+    <h2>🗓️ Elkövetkező mérkőzések</h2>
+    <div class="match-row" *ngFor="let match of upcomingMatches">
+      <div class="date">
+        <mat-icon>calendar_today</mat-icon>
+        {{ match.date }}
+      </div>
+      <div class="teams">
+        <span class="team home">{{ match.home }}</span> vs
+        <span class="team away">{{ match.away }}</span>
+      </div>
+      <div class="location">{{ match.location }}</div>
+    </div>
+  
+    <h2>✅ Lezajlott mérkőzések</h2>
+    <div class="match-row" *ngFor="let match of pastMatches">
+      <div class="date">
+        <mat-icon>calendar_today</mat-icon>
+        {{ match.date }}
+      </div>
+      <div class="teams">
+        <span class="team home">{{ match.home }}</span>
+        <span class="score">{{ match.score }}</span>
+        <span class="team away">{{ match.away }}</span>
+      </div>
+      <div class="location">{{ match.location }}</div>
+    </div>
+  </div>
+  

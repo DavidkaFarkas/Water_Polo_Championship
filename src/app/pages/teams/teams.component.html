@@ -1,0 +1,18 @@
+<div class="teams-container">
+  <h2>Csapatok</h2>
+
+  <div class="team-card" *ngFor="let team of teams | teamStandings">
+    <div class="team-header">
+      <h3>{{ team.name }}</h3>
+      <span class="team-location">{{ team.city }}</span>
+    </div>
+
+    <div class="team-info">
+      <p><strong>Játékosok száma:</strong> {{ team.players }} fő</p>
+      <p><strong>Pontok:</strong> {{ team.points }}</p>
+      <button mat-raised-button color="primary">Részletek</button>
+    </div>
+  </div>
+</div>
+
+  

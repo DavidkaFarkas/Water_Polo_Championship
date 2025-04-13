@@ -1,0 +1,55 @@
+.standings-container {
+    padding: 2rem;
+    color: #001251;
+  
+    h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #27c4f5;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+  
+    .table-wrapper {
+      overflow-x: auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th {
+        background-color: #00005c;
+        color: #ffffff;
+        padding: 1rem;
+        text-align: left;
+        font-weight: bold;
+      }
+  
+      td {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+      }
+  
+      tbody tr.even {
+        background-color: #f0f0ff;
+      }
+  
+      .team-cell {
+        display: flex;
+        align-items: center;
+  
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  
