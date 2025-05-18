@@ -2,35 +2,80 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>Water Polo Player Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>Select Player</mat-label>
-        <mat-select [value]="selectedIndex" (selectionChange)="reload($event.value)">
+        <mat-select [(ngModel)]="selectedIndex" (selectionChange)="reload(selectedIndex)">
           <mat-option *ngFor="let profile of profiles; let i = index" [value]="i">
             {{ profile.user_name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </mat-card-header>
-
-    <mat-card-content>
-      <div class="profile-info">
-        <div class="avatar-container">
-          <div class="avatar">
-            {{ profiles[selectedIndex].user_name[0] }}
-          </div>
-        </div>
-        <div class="user-details">
-          <h3 class="user-name">{{ profiles[selectedIndex].user_name }}</h3>
-          <div class="user-email">
-            <mat-icon>email</mat-icon>
-            <span>{{ profiles[selectedIndex].email }}</span>
-          </div>
-          <div class="user-position">
-            <mat-icon>sports_water_polo</mat-icon>
-            <span>{{ profiles[selectedIndex].position }}</span>
+      <div *ngIf="profiles.length > 0; else noProfile">
+        <div *ngFor="let profile of profiles; let i = index">
+          <div *ngIf="selectedIndex === i">
+            <div class="profile-info" *ngIf="!editing; else editForm">
+              <div class="avatar-container">
+                <div class="avatar">
+                  {{ profile.user_name[0] }}
+                </div>
+              </div>
+              <div class="user-details">
+                <h3 class="user-name">{{ profile.user_name }}</h3>
+                <div class="user-email">
+                  <mat-icon>email</mat-icon>
+                  <span>{{ profile.email }}</span>
+                </div>
+                <div class="user-position">
+                  <mat-icon>sports_water_polo</mat-icon>
+                  <span>{{ profile.position }}</span>
+                </div>
+              </div>
+              <div class="button-group">
+                <button mat-raised-button color="primary" (click)="enableEditing()">Szerkesztés</button>
+              </div>
+            </div>
+            <ng-template #editForm>
+              <form [formGroup]="profileForm" (ngSubmit)="saveChanges()" class="edit-form">
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" formControlName="email" required>
+                  <mat-error *ngIf="profileForm.get('email')?.invalid">Érvényes email címet adj meg!</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Pozíció</mat-label>
+                  <mat-select formControlName="position">
+                    <mat-option *ngFor="let pos of positions" [value]="pos">{{pos}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div class="button-group">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid">Mentés</button>
+                  <button mat-button type="button" (click)="editing = false">Mégse</button>
+                </div>
+              </form>
+            </ng-template>
           </div>
         </div>
       </div>
+      <ng-template #noProfile>
+        <p>Nincs elérhető profil.</p>
+      </ng-template>
     </mat-card-content>
   </mat-card>
 </div>
+
+<style>
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.edit-form .button-group {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+</style>

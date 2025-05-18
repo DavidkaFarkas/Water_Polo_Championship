@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
@@ -10,35 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent {
-  upcomingMatches = [
-    {
-      date: '2025. 05. 01. 18:00',
-      home: 'BVSC',
-      away: 'FTC-Telekom',
-      location: 'Komjádi Uszoda'
-    },
-    {
-      date: '2025. 05. 03. 20:00',
-      home: 'OSC',
-      away: 'Szolnok',
-      location: 'Nyéki Imre Uszoda'
-    }
-  ];
+  @Input() upcomingMatches: any[] = []; // Szülő komponens adja át
+  @Input() pastMatches: any[] = [];     // Szülő komponens adja át
+  @Output() matchClick = new EventEmitter<any>(); // Esemény a kattintásra
 
-  pastMatches = [
-    {
-      date: '2025. 04. 10. 17:30',
-      home: 'Eger',
-      away: 'Szeged',
-      score: '8 - 9',
-      location: 'Bitskey Aladár Uszoda'
-    },
-    {
-      date: '2025. 04. 06. 19:00',
-      home: 'Vasas',
-      away: 'Honvéd',
-      score: '7 - 7',
-      location: 'Vasas Sportuszoda'
-    }
-  ];
+  onMatchClick(match: any) {
+    this.matchClick.emit(match); // Elküldjük a szülőnek a mérkőzés adatát
+  }
 }

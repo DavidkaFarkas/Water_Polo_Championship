@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Water_Polo_Championship": {
+    "water-polo-championship": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/water-polo-championship",
+            "outputPath": "dist/learnflow/browser/browser/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -42,7 +42,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "1000kB",
                   "maximumError": "1MB"
                 },
                 {
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Water_Polo_Championship:build:production"
+              "buildTarget": "water-polo-championship:build:production"
             },
             "development": {
-              "buildTarget": "Water_Polo_Championship:build:development"
+              "buildTarget": "water-polo-championship:build:development"
             }
           },
           "defaultConfiguration": "development"
